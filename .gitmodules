@@ -1,0 +1,3 @@
+[submodule "LibavSharp"]
+	path = LibavSharp
+	url = https://github.com/amphineko/LibavSharp.git

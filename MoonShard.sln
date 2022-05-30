@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoonShard.DiscordBot", "MoonShard.DiscordBot\MoonShard.DiscordBot.csproj", "{A2953677-D873-46D4-B0F9-68D98CA01208}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LibavSharp", "LibavSharp", "{7020CB43-90C6-410C-B62B-FD5EF6E89FA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibavSharp.Core", "LibavSharp\LibavSharp.Core\LibavSharp.Core.csproj", "{B0CE38B9-6752-4E85-8A06-885E2E19EA0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibavSharp.Extensions", "LibavSharp\LibavSharp.Extensions\LibavSharp.Extensions.csproj", "{3D9E371F-87E5-4C37-862E-DD11C53A5407}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2953677-D873-46D4-B0F9-68D98CA01208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2953677-D873-46D4-B0F9-68D98CA01208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2953677-D873-46D4-B0F9-68D98CA01208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2953677-D873-46D4-B0F9-68D98CA01208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0CE38B9-6752-4E85-8A06-885E2E19EA0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0CE38B9-6752-4E85-8A06-885E2E19EA0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0CE38B9-6752-4E85-8A06-885E2E19EA0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0CE38B9-6752-4E85-8A06-885E2E19EA0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D9E371F-87E5-4C37-862E-DD11C53A5407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D9E371F-87E5-4C37-862E-DD11C53A5407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D9E371F-87E5-4C37-862E-DD11C53A5407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D9E371F-87E5-4C37-862E-DD11C53A5407}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0CE38B9-6752-4E85-8A06-885E2E19EA0B} = {7020CB43-90C6-410C-B62B-FD5EF6E89FA6}
+		{3D9E371F-87E5-4C37-862E-DD11C53A5407} = {7020CB43-90C6-410C-B62B-FD5EF6E89FA6}
+	EndGlobalSection
+EndGlobal

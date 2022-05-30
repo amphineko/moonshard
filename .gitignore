@@ -1,0 +1,5 @@
+.idea
+.vscode
+[Bb]in/
+[Oo]bj/
+*.DotSettings.user

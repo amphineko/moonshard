@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Discord.Net.Commands" Version="3.6.1"/>
+        <PackageReference Include="Discord.Net.Interactions" Version="3.6.1"/>
+        <PackageReference Include="Discord.Net.WebSocket" Version="3.6.1"/>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\LibavSharp.Core\LibavSharp.Core.csproj"/>
+        <ProjectReference Include="..\LibavSharp.Extensions\LibavSharp.Extensions.csproj"/>
+        <ProjectReference Include="..\LibavSharp\LibavSharp.Core\LibavSharp.Core.csproj"/>
+        <ProjectReference Include="..\LibavSharp\LibavSharp.Extensions\LibavSharp.Extensions.csproj"/>
+    </ItemGroup>
+
+</Project>
