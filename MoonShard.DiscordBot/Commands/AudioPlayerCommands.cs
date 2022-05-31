@@ -2,18 +2,22 @@ using Discord;
 using Discord.Interactions;
 using Discord.WebSocket;
 using MoonShard.DiscordBot.ExternalServices.Bilibili;
+using MoonShard.DiscordBot.ExternalServices.NeteaseMusic;
 using MoonShard.DiscordBot.Services.AudioPlayers;
 
 namespace MoonShard.DiscordBot.Commands;
 
 public class AudioPlayerCommands : InteractionModuleBase
 {
-    public AudioPlayerCommands(AudioPlayerRepository players)
+    public AudioPlayerCommands(AudioPlayerRepository players, NeteaseMusicJobFactory neteaseMusicJobFactory)
     {
         Players = players;
+        NeteaseMusicJobFactory = neteaseMusicJobFactory;
     }
 
     private AudioPlayerRepository Players { get; }
+
+    private NeteaseMusicJobFactory NeteaseMusicJobFactory { get; }
 
     private static HttpClient HttpClient { get; } = new();
 
@@ -57,6 +61,36 @@ public class AudioPlayerCommands : InteractionModuleBase
                 var job = LocalFileJob.Create(filename, "/Users/amphineko/Downloads/playable");
                 await Players.EnqueueAsync(Context.Guild.Id, voiceChannel, job, textChannel);
                 await RespondAsync($"Local file {job.Name} added to the queue");
+            });
+        }
+        catch (Exception e)
+        {
+            await textChannel.SendMessageAsync($"Error during command execution: {e.Message}");
+        }
+    }
+
+    [SlashCommand("netease", "Play a Netease Music song from a given id")]
+    public async Task QueueNeteaseMusicSongAsync(string id)
+    {
+        if (Context.Interaction is not SocketInteraction {Channel: var textChannel})
+        {
+            await ReplyAsync("This command can only be invoked in a text channel.");
+            return;
+        }
+
+        if (!int.TryParse(id, out var numId))
+        {
+            await ReplyAsync("Invalid id");
+            return;
+        }
+
+        try
+        {
+            await EnsureConnectedToVoiceChannel(async voiceChannel =>
+            {
+                var job = await NeteaseMusicJobFactory.CreateAsync(numId);
+                await Players.EnqueueAsync(Context.Guild.Id, voiceChannel, job, textChannel);
+                await RespondAsync($"Netease Music song {job.Name} added to the queue");
             });
         }
         catch (Exception e)

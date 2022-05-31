@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MoonShard.DiscordBot;
 using MoonShard.DiscordBot.Commands;
+using MoonShard.DiscordBot.ExternalServices.NeteaseMusic;
 using MoonShard.DiscordBot.Services.AudioClients;
 using MoonShard.DiscordBot.Services.AudioPlayers;
 
@@ -68,6 +69,12 @@ var host = new HostBuilder()
         services.AddSingleton<AudioPlayerRepository>();
 
         services.AddHostedService<Client>();
+
+        services.AddSingleton(sp =>
+        {
+            var endpoint = sp.GetRequiredService<ApplicationConfiguration>().NeteaseMusicApiEndpoint;
+            return new NeteaseMusicJobFactory(!string.IsNullOrWhiteSpace(endpoint) ? endpoint : null);
+        });
     })
     .Build();
 
